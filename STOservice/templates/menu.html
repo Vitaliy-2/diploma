@@ -13,8 +13,8 @@
                 {% endfor %}
             </ul>
 
-            {% comment %} <ul class="navbar-nav">
-                Проверяем условие, залогинин пользователь или нет 
+            <ul class="navbar-nav">
+                {% comment %} Проверяем условие, залогинин пользователь или нет  {% endcomment %}
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <span class="nav-link">{{ user.username }}</span>
@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
                 </li>
                 {% endif %}
-            </ul>  {% endcomment %}
+            </ul>
 
         </div>
     </div>

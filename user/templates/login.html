@@ -1,0 +1,36 @@
+{% extends "base.html" %}  
+{% block header %}
+    {% include 'menu.html' %}
+{% endblock %} 
+
+{% block content %}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4">
+            <section class="mb-4">
+                <h2 class="mb-4 text-center">Вход</h2>
+                <form method="post">
+                {% csrf_token %}
+                {% comment %} ?next=/visit/1/view/ {% endcomment %}
+                {% comment %} hidden - скрытое поле ввода, которое пользователь не увидит {% endcomment %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {{ form.as_p }}
+                <div class="d-grid mb-4">
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </div>
+                </form>
+
+                {% comment %} <form method="post" action="{% url 'password_reset' %}" class="d-inline">
+                    {% csrf_token %}
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary">Восстановить пароль</button>
+                    </div>
+                </form> {% endcomment %}
+
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
