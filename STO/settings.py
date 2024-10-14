@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from django.urls import reverse_lazy
 
 load_dotenv()
 
@@ -124,8 +125,12 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / 'static/'
+STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / 'static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
@@ -138,3 +143,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Конфигурация для отправки уведомлений в Telegram
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 YOUR_PERSONAL_CHAT_ID = os.getenv("YOUR_PERSONAL_CHAT_ID")
+
+
+LOGIN_URL = reverse_lazy("login")
+
+# Используется как значение по умолчанию, если явно не е указано во view
+LOGIN_REDIRECT_URL = 'main'
+LOGOUT_REDIRECT_URL = 'main'
