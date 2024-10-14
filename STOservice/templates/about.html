@@ -1,0 +1,477 @@
+{% extends "base.html" %} 
+
+
+{% comment %} Тест коммет {% endcomment %} 
+{% block title %}О сервисе{% endblock %} 
+
+{% block header %}
+{% include 'menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<div class='container py-4'>
+
+    <h1 class='text-center'>Приветствуем Вас на нашем сайте лучшего Автосервиса в Петрозаводске!</h1>
+
+    <a href={% url 'services' %} class="w-100 btn btn-dark mb-5 mt-5 py-3 ">
+        <h4>Оставьте простую заявку, заполните форму и в скором времени с Вами свяжутся специалисты!</h4></a>
+    
+    <h2>Наши услуги</h2>
+
+    <h4>Шиномонтаж</h4>
+    
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse1" aria-expanded="true" aria-controls="panelsStayOpen-collapse1">
+                Демонтаж резины с диска
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse1" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Промывка колеса от песка, пыли, мелкого гравия</li>
+                        <li>Колесо с диском укладывают на бортировочный стол</li>
+                        <li>Фиксируют диск пневмозажимами и подводят к нему специальную штангу</li>
+                        <li>После чего устанавливают зазор, по которому будут отделять резину от металлического обода</li>
+                        <li>Затем подключают станок, который отделит одни элементы от других</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="false" aria-controls="panelsStayOpen-collapse2">
+                Очистка дисков от загрязнений
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Подготовка необходимых средств</li>
+                        <li>Осмотр и оценка степени загрязнения</li>
+                        <li>Удаление грязи и глубокая очистка</li>
+                        <li>Проверка поверхности, смывание средств</li>
+                        <li>Покрытие защитным слоем</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse3" aria-expanded="false" aria-controls="panelsStayOpen-collapse3">
+                Балансировка колес
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse3" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Колесо в сборе крепится в балансировочном станке</li>
+                        <li>Быстро раскручивается</li>
+                        <li>Компьютер определяет самые тяжелые сегменты колеса с его наружной и внутренней стороны</li>
+                        <li>Которые затем уравновешиваются грузиками</li>
+                        <li>Повторная калибровка колеса</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse4" aria-expanded="false" aria-controls="panelsStayOpen-collapse4">
+                Ремонт шин
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse4" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Осмотр поврежденного места</li>
+                        <li>Зачистка</li>
+                        <li>Определение процедуры ремонта</li>
+                        <li>Устранение дефекта</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse5" aria-expanded="false" aria-controls="panelsStayOpen-collapse5">
+                Шиповка
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse5" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Измерение глубины посадочных мест</li>
+                        <li>Очистка отверстий от мусора</li>
+                        <li>Смазывание отверстий</li>
+                        <li>Установка шипов специальным инструментом</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse6" aria-expanded="false" aria-controls="panelsStayOpen-collapse6">
+                Сезонная замена колес
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse6" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Проверка состояния шин</li>
+                        <li>Перестановка шин</li>
+                        <li>Проверка давления и балансировка</li>
+                        <li>Диагностика ходовой части</li>
+                        <li>Регулировка углов установки колёс</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h4>Кузовные работы</h4>
+    
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse7" aria-expanded="true" aria-controls="panelsStayOpen-collapse7">
+                Косметический ремонт
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse7" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Покраска</li>
+                        <li>Полировка</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse8" aria-expanded="false" aria-controls="panelsStayOpen-collapse8">
+                Локальный ремонт
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse8" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Осмотр и выравнивание поверхности</li>
+                        <li>Нанесение специальных грунтов</li>
+                        <li>Подбор цвета</li>
+                        <li>Нанесение основной базы и лака</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse9" aria-expanded="false" aria-controls="panelsStayOpen-collapse9">
+                Рихтовка
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse9" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Анализ повреждений</li>
+                        <li>Восстановление начальной формы детали</li>
+                        <li>Удаление мелких дефектов</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse10" aria-expanded="false" aria-controls="panelsStayOpen-collapse10">
+                Восстановление геометрии кузова
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse10" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Визуальная оценка повреждений</li>
+                        <li>Измерение кузова и восстановление его геометрии</li>
+                        <li>Обработка деталей</li>
+                        <li>Покраска поверхности кузова</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse11" aria-expanded="false" aria-controls="panelsStayOpen-collapse11">
+                Капитальный ремонт
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse11" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Разборка автомобиля</li>
+                        <li>Рихтовочные и сварочные работы</li>
+                        <li>Подготовка к покраске</li>
+                        <li>Сборка и полировка</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse12" aria-expanded="false" aria-controls="panelsStayOpen-collapse12">
+                Удаление царапин
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse12" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Подкрашивание</li>
+                        <li>Полировка</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h4>Подвесная составляющая автомобиля</h4>
+    
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse13" aria-expanded="true" aria-controls="panelsStayOpen-collapse13">
+                Передний узел
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse13" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Осмотр</li>
+                        <li>Выявление дефектных деталей</li>
+                        <li>Подбор новых</li>
+                        <li>Замена</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse14" aria-expanded="false" aria-controls="panelsStayOpen-collapse14">
+                Амортизаторы
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse14" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Анализ повреждений</li>
+                        <li>Снятие с автомобиля</li>
+                        <li>Установка</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse15" aria-expanded="false" aria-controls="panelsStayOpen-collapse15">
+                Наконечники, опоры
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse15" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Осмотр</li>
+                        <li>Выявление дефектных деталей</li>
+                        <li>Подбор новых</li>
+                        <li>Замена</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse16" aria-expanded="false" aria-controls="panelsStayOpen-collapse16">
+                Рычаги
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse16" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Осмотр</li>
+                        <li>Выявление дефектных деталей</li>
+                        <li>Подбор новых</li>
+                        <li>Замена</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse17" aria-expanded="false" aria-controls="panelsStayOpen-collapse17">
+                Подшипники
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse17" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Осмотр</li>
+                        <li>Выявление дефектных деталей</li>
+                        <li>Подбор новых</li>
+                        <li>Замена</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse18" aria-expanded="false" aria-controls="panelsStayOpen-collapse18">
+                Задний механизм
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse18" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Осмотр</li>
+                        <li>Выявление дефектных деталей</li>
+                        <li>Подбор новых</li>
+                        <li>Замена</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h4>Дополнительные услуги</h4>
+    
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse19" aria-expanded="true" aria-controls="panelsStayOpen-collapse19">
+                Автоэлектрика
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse19" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Система зажигания</li>
+                        <li>Стартер и запуск двигателя</li>
+                        <li>Микроклимат в салоне</li>
+                        <li>Управление двигателем и коробкой передач</li>
+                        <li>Бортовой компьютер и диагностика</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse20" aria-expanded="false" aria-controls="panelsStayOpen-collapse20">
+                Регулировка фар
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse20" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Замер падения угла на специальном стенде</li>
+                        <li>Регулировка</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse21" aria-expanded="false" aria-controls="panelsStayOpen-collapse21">
+                Тонировка стекол
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse21" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Подбор пленки</li>
+                        <li>Чистка стекла</li>
+                        <li>Нанесение мыльного раствора</li>
+                        <li>Покрытие пленкой</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse22" aria-expanded="false" aria-controls="panelsStayOpen-collapse22">
+                Техническое обслуживание по пробегу
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse22" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Контрольный осмотр</li>
+                        <li>Замена масла</li>
+                        <li>Замена воздушного и салонного фильтров</li>
+                        <li>Подбор расходников</li>
+                        <li>Сертификация</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse23" aria-expanded="false" aria-controls="panelsStayOpen-collapse23">
+                Установка сигнализации
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse23" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Подбор оборудования</li>
+                        <li>Индивидуальный подход</li>
+                        <li>Внедрение материала</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse24" aria-expanded="false" aria-controls="panelsStayOpen-collapse24">
+                Установка фаркопов
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapse24" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul>
+                        <li>Подбор прицепного устройства</li>
+                        <li>Установка с блоком согласования и подключение электрики</li>
+                        <li>Подготовка всех документов для предъявления ГИБДД</li>
+                        <li>Сертификаты на установку</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+</div>
+
+{% endblock %}

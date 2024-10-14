@@ -1,0 +1,161 @@
+{% extends "base.html" %} 
+{% load static %}
+
+
+{% comment %} Тест коммет {% endcomment %} 
+{% block title %}Услуги{% endblock %} 
+
+{% block header %}
+{% include 'menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<div class='container py-4 text-center'>
+    <section>
+        <div>
+            <h1>Добро пожаловать на страницу Услуг!</h1>
+            <p>Здесь Вы сможете ознакомиться со всеми услугами, которые предоставляет наш сервис.
+            Услуги разграничены по разделам, что упростит Ваш поиск и ориентацию по сайту! А также посмотрим на новые</p>
+        </div>
+    </section>
+
+    <section class='mt-5'>
+        <div>
+            <h2>Шиномонтаж</h2>
+        </div>
+ 
+        <div class='row'>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/шиномонтаж/Демонтаж_резины.jpg" %} alt="Демонтаж">
+                <h4>Демонтаж резины с диска</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/шиномонтаж/Очистка_колес.jpg" %} alt="Очистка">
+                <h4>Очистка колес от загрязнений</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/шиномонтаж/Балансировка.jpg" %} alt="Балансировка">
+                <h4>Балансировка колес</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/шиномонтаж/Ремонт.jpg" %} alt="Ремонт шин">
+                <h4>Ремонт шин</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/шиномонтаж/Шиповка.jpg" %} alt="Шиповка">
+                <h4>Шиповка</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/шиномонтаж/Сезонная_замена.jpg" %} alt="Сезон">
+                <h4>Сезонная замена колес</h4>
+            </div>  
+        </div>
+
+    </section>
+
+    <section class='mt-5'>
+        <div>
+            <h2>Кузовные работы</h2>
+        </div>
+ 
+        <div class='row'>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/кузов/Косметический.jpg" %} alt="Косметический ремонт">
+                <h4>Косметический ремонт</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/кузов/Локальный.jpg" %} alt="Локальный ремонт">
+                <h4>Локальный ремонт</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/кузов/Рихтовка.jpg" %} alt="Рихтовка">
+                <h4>Рихтовка</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/кузов/Геометрия.jpg" %} alt="Восстановление геометрии">
+                <h4>Восстановление геометрии кузова</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/кузов/Капитальный.jpg" %} alt="Капитальный">
+                <h4>Капитальный ремонт</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/кузов/Полировка.jpg" %} alt="Полировка">
+                <h4>Удаление царапин</h4>
+            </div>  
+        </div>
+
+    </section>
+
+    <section class='mt-5'>
+        <div>
+            <h2>Также одной из основной деятельности сервиса является работа с подвеской и ее состовляющими</h2>
+        </div>
+ 
+        <div class='row'>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/подвеска/Подвеска.jpg" %} alt="Передний узел">
+                <h4>Передний узел</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/подвеска/Амортизатор.jpg" %} alt="Амортизаторы">
+                <h4>Амортизаторы</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/подвеска/Шрус.jpg" %} alt="Наконечники, опоры">
+                <h4>Наконечники, опоры</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/подвеска/Рычаги.jpg" %} alt="Рычаги">
+                <h4>Рычаги</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/подвеска/Подшипники.jpg" %} alt="Подшипники">
+                <h4>Подшипники</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/подвеска/Мост.jpg" %} alt="Задний механизм">
+                <h4>Задний механизм</h4>
+            </div>  
+        </div>
+
+    </section>
+
+    <section class='mt-5'>
+        <div>
+            <h2>Дополнительные услуги</h2>
+        </div>
+ 
+        <div class='row'>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/доп/Автоэлектрика.jpg" %} alt="Автоэлектрика">
+                <h4>Автоэлектрика</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/доп/Фара.jpg" %} alt="Фары">
+                <h4>Регулировка фар</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/доп/Тонировка.jpg" %} alt="Тонировка">
+                <h4>Тонировка стекол</h4>
+            </div> 
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/доп/ТО.jpg" %} alt="ТО">
+                <h4>Техническое обслуживание по пробегу</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/доп/Сигнализация.jpg" %} alt="Сигнализация">
+                <h4>Установка сигнализации</h4>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <img src={% static "images/доп/Фаркоп.jpg" %} alt="Фаркоп">
+                <h4>Установка фаркопов</h4>
+            </div>  
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
