@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 
@@ -28,3 +28,9 @@ class CustomUserCreationForm(UserCreationForm):
             raise ValidationError("Данный адрес электронной почты уже зарегистрирован в системе")
         # Если проверка прошла, пропускаем email дальше
         return email
+
+
+class CustomPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Текущий пароль"}))
+    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Новый пароль"}))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Подтверждение нового пароля"}))
