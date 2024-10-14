@@ -1,0 +1,69 @@
+{% extends "base.html" %} 
+
+{% block header %}
+{% include 'menu.html' %}
+{% endblock %} 
+
+{% block content %}
+
+<div class="container py-4">
+    <div class="row">
+        <section id="orderForm" class="col-12 mb-4">
+            <h2>Запись на СТО</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="mb-3">{{ form.as_p }}</div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+        </section>
+    </div>
+</div>
+
+
+{% block footer %}
+    <p></p>
+{% endblock footer %}
+
+<script>
+    // Функция для выполнения AJAX-запроса к серверу и получения услуг по выбранному мастеру
+    async function fetchServices(sectionId) {
+        const url = `/get_services_by_section/${sectionId}/`; // Убедитесь, что этот URL соответствует маршрутизации
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.services;
+    }
+    
+    // Функция для обновления выпадающего списка услуг на основе полученных данных
+    function updateServiceOptions(services) {
+        const serviceSelect = document.getElementById("id_services");
+    
+        // Очистить текущий список опций услуг
+        serviceSelect.innerHTML = "";
+    
+        // Добавить новые опции на основании полученных данных
+        services.forEach(function (service) {
+            const option = document.createElement("option");
+            option.value = service.id;
+            option.text = service.name;
+            serviceSelect.appendChild(option);
+        });
+    }
+    
+    // Обработчик изменения мастера, который запрашивает данные и обновляет список услуг
+    function setupServiceSelectListener() {
+        const sectionSelect = document.getElementById("id_section");
+        
+        sectionSelect.addEventListener("change", async function () {
+            const sectionId = sectionSelect.value;
+            const services = await fetchServices(sectionId);
+            updateServiceOptions(services);
+        });
+    }
+    
+    // Добавляем обработчик DOMContentLoaded чтобы инициализировать наш Listener после загрузки документа
+    document.addEventListener("DOMContentLoaded", function () {
+        setupServiceSelectListener();
+    });
+    </script>
+
+{% endblock %}
