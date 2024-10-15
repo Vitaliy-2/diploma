@@ -1,10 +1,13 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, PasswordChangeView
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, View
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import CustomLoginForm, CustomUserCreationForm, CustomPasswordChangeForm
+
 
 
 
@@ -41,3 +44,8 @@ class CustomPasswordChangeView(PasswordChangeView):
 
 class CustomPasswordChangeDoneView(TemplateView):
     template_name = 'password_change_done.html'
+
+
+class CabinetClassView(LoginRequiredMixin, View):
+    def post(self, request):
+        return render(request, 'cabinet.html')

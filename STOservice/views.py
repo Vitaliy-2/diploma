@@ -75,7 +75,7 @@ class VisitFormView(FormView):
     template_name = "visit_form.html"
     form_class = VisitModelForm
     success_url = "/thanks/"
-    context = get_menu_context()
+    # context = get_menu_context()
 
     def form_valid(self, form):
         form.save()

@@ -16,6 +16,15 @@
             <ul class="navbar-nav">
                 {% comment %} Проверяем условие, залогинин пользователь или нет  {% endcomment %}
                 {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    {% comment %} POST запрос на выход. {% endcomment %}
+                    <form method="post" action="{% url 'cabinet' %}" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link">Личный кабинет</button>
+                    </form>
+                </li>
+
                 <li class="nav-item">
                     <span class="nav-link">{{ user.username }}</span>
                 </li>
