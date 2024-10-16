@@ -9,6 +9,7 @@ from .views import (
     CustomRegisterView,
     CustomPasswordChangeView,
     CustomPasswordChangeDoneView,
+    ProfileClassView,
     CabinetClassView,
 )
 
@@ -44,6 +45,9 @@ urlpatterns = [
             template_name="password_reset_complete.html"
         ), name="password_reset_complete",),
     
+    # Личный кабинет
+    path("profile/", ProfileClassView.as_view(), name="profile"),
+
     # Личный кабинет
     path("cabinet/", CabinetClassView.as_view(), name="cabinet"),
 ]

@@ -19,7 +19,7 @@
 
                 <li class="nav-item">
                     {% comment %} POST запрос на выход. {% endcomment %}
-                    <form method="post" action="{% url 'cabinet' %}" class="d-inline">
+                    <form method="post" action="{% url 'profile' %}" class="d-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-link nav-link">Личный кабинет</button>
                     </form>

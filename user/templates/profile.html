@@ -1,0 +1,26 @@
+{% extends "base_profile.html" %}
+{% load static %}
+
+{% comment %} Добавим стили - чтобы фотография была кругом и не более 400 пикселей {% endcomment %}
+{% block head %}
+
+{% endblock %}
+
+{% block content_profile %}
+
+{% comment %} ТУТ Форма профиля {% endcomment %} 
+<h2>Изменение профиля
+    {% comment %} Если пользователь состоит в группе "Модераторы" {% endcomment %}
+    {% if user.moderator %}
+    <i class="bi bi-vector-pen"></i>
+    {% endif %}
+    </h2>
+    <form method="post" action="{% url 'main' %}">
+        {% csrf_token %}
+        <button type="submit" name="provider" value="github" class="btn btn-dark">Привязать GitHub</button>
+        <button type="submit" name="provider" value="vk" class="btn btn-dark">Привязать VK</button>
+    </form>
+    
+    
+    
+{% endblock %}

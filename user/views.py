@@ -39,11 +39,17 @@ class CustomRegisterView(CreateView):
 class CustomPasswordChangeView(PasswordChangeView):
     form_class = CustomPasswordChangeForm
     template_name = 'password_change.html'
+    extra_context = {'title': 'Изменение пароля', 'active_tab': 'password_change'}
     success_url = reverse_lazy('password_change_done')
 
 
 class CustomPasswordChangeDoneView(TemplateView):
     template_name = 'password_change_done.html'
+
+
+class ProfileClassView(LoginRequiredMixin, View):
+    def post(self, request):
+        return render(request, 'profile.html')
 
 
 class CabinetClassView(LoginRequiredMixin, View):
