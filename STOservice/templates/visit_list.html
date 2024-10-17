@@ -2,6 +2,10 @@
 
 {% block title %}Список заявок{% endblock %}
 
+{% block header %}
+{% include 'menu.html' %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <h1 class="my-4">Список заявок</h1>
@@ -32,12 +36,18 @@
                 <td>{{ visit.created_at }}</td>
                 <td>{{ visit.get_status_display }}</td>
                 <td class="d-flex justify-content-around align-items-center">
+
+                    {% if perms.STOservice.delete_visit %}
                     <a href="{% url 'visit-delete' visit.pk %}" class="btn btn-danger my-2"><i class="bi bi-trash"></i></a>
+                    {% endif %}
+
                     <a href="{% url 'visit-edit' visit.pk %}" class="btn btn-dark my-2"><i class="bi bi-pencil"></i></a>
+
                     {% comment %} Добавляем проверку прав на core.view_visit {% endcomment %}
-                    {% if perms.core.view_visit %}
+                    {% if perms.STOservice.view_visit %}
                     <a href="{% url 'visit-view' visit.pk %}" class="btn btn-dark my-2"><i class="bi bi-eye"></i></a>
                     {% endif %}
+
                 </td>
             </tr>
             {% endfor %}

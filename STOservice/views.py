@@ -22,6 +22,8 @@ from django.views.generic import (
 
 from .forms import VisitModelForm, VisitEditModelForm
 from .models import Visit, Section
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.models import Group
 
 
 MENU = [
@@ -120,7 +122,8 @@ class VisitCreateView(CreateView):
     success_url = reverse_lazy("thanks")\
 
 
-class VisitUpdateView(UpdateView):
+class VisitUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'STOservice.edet_visit'
     template_name = "visit_form.html"
     model = Visit
     # fields = ["name", "phone", "comment", "master", "services"] # Мы можем обойтись даже без формы!!!
@@ -131,9 +134,9 @@ class VisitUpdateView(UpdateView):
 
 
 # Миксин, дает проверку прав, выдаваемых через админку PermissionRequiredMixin, 
-class VisitDetailView(DetailView):
+class VisitDetailView(PermissionRequiredMixin, DetailView):
     # Где core - приложение, view - право доступа на одну из круд операцию, visit - модель
-    # permission_required = 'core.view_visit'
+    permission_required = 'STOservice.view_visit'
     # raise_exception = True
     template_name = "visit_detail.html"
     model = Visit
@@ -141,13 +144,14 @@ class VisitDetailView(DetailView):
     context_object_name = "visit"
 
 
-class VisitDeleteView(DeleteView):
+class VisitDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'STOservice.delete_visit'
     template_name = "visit_confirm_delete.html"
     model = Visit
     success_url = reverse_lazy("thanks")
 
 
-class VisitListView(ListView):
+class VisitListView(LoginRequiredMixin, ListView):
     template_name = "visit_list.html"
     model = Visit
     context_object_name = "visits"

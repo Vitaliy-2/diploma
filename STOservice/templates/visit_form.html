@@ -16,6 +16,7 @@
                 {% csrf_token %}
                 <div class="mb-3">{{ form.as_p }}</div>
                 <button type="submit" class="btn btn-primary">Отправить</button>
+                <a href="{% url 'visits' %}" class="btn btn-success my-2">Назад</a>
             </form>
         </section>
     </div>

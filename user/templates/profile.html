@@ -8,19 +8,17 @@
 
 {% block content_profile %}
 
-{% comment %} ТУТ Форма профиля {% endcomment %} 
-<h2>Изменение профиля
-    {% comment %} Если пользователь состоит в группе "Модераторы" {% endcomment %}
-    {% if user.moderator %}
-    <i class="bi bi-vector-pen"></i>
-    {% endif %}
-    </h2>
-    <form method="post" action="{% url 'main' %}">
-        {% csrf_token %}
-        <button type="submit" name="provider" value="github" class="btn btn-dark">Привязать GitHub</button>
-        <button type="submit" name="provider" value="vk" class="btn btn-dark">Привязать VK</button>
-    </form>
-    
-    
-    
+<div class="container">
+    <div class="row">
+            <h2>Мои данные</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>Дата регистрации:</strong> {{ user.date_joined }}</p>
+                </div>
+            </div>
+    </div>
+</div>
+
 {% endblock %}
