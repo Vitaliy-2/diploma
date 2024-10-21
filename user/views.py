@@ -2,11 +2,13 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, PasswordChangeView
-from django.views.generic import CreateView, TemplateView, View
+from django.views.generic import CreateView, TemplateView, View, ListView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import CustomLoginForm, CustomUserCreationForm, CustomPasswordChangeForm
+from django.contrib import messages
+from .models import Note
+from .forms import CustomLoginForm, CustomUserCreationForm, CustomPasswordChangeForm, NoteForm
 
 
 
@@ -66,3 +68,34 @@ class ProfileDataView(LoginRequiredMixin, TemplateView):
         context.update({'title': 'Мои данные'})
         return context
 
+
+class AddNoteView(LoginRequiredMixin, CreateView):
+    form_class = NoteForm
+    template_name = 'add_note.html'
+    success_url = reverse_lazy('my_notes')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        messages.success(self.request, 'Запись успешно добавлена!')
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['active_tab'] = 'add_note'
+        context['title'] = 'Добавить запись'
+        return context
+
+
+class MyNotesView(LoginRequiredMixin, ListView):
+    model = Note
+    template_name = 'my_notes.html'
+    context_object_name = 'note'
+
+    def get_queryset(self):
+        return Note.objects.filter(user=self.request.user).order_by('-created_at')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['active_tab'] = 'my_notes'
+        context['title'] = 'Мои заметки'
+        return context

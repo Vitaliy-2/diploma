@@ -10,9 +10,9 @@
 
         <a class="nav-link {% if active_tab == 'password_change' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'password_change' %}">Сменить пароль</a>
 
-        <a class="nav-link {% if active_tab == 'profile_cards' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'main' %}">Мои записи</a>
-        {% comment %} profile_favorites - для отображения избранного {% endcomment %}
-        <a class="nav-link {% if active_tab == 'profile_cards' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'main' %}">Добавить запись</a>
+        <a class="nav-link {% if active_tab == 'my_notes' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'my_notes' %}">Мои заметки</a>
+
+        <a class="nav-link {% if active_tab == 'add_note' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'add_note' %}">Добавить заметку</a>
 
         {% if user.groups.all.0.name == 'Администратор' or user.is_superuser %}
             <a href="{% url 'visits' %}" class="btn btn-secondary mt-4"><i class="bi bi-list-ul"></i> Список всех записей</a>

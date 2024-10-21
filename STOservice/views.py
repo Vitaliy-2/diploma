@@ -24,6 +24,8 @@ from .forms import VisitModelForm, VisitEditModelForm
 from .models import Visit, Section
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import Group
+from django.contrib.auth.mixins import UserPassesTestMixin
+
 
 
 MENU = [
@@ -123,7 +125,7 @@ class VisitCreateView(CreateView):
 
 
 class VisitUpdateView(PermissionRequiredMixin, UpdateView):
-    permission_required = 'STOservice.edet_visit'
+    permission_required = 'STOservice.change_visit'
     template_name = "visit_form.html"
     model = Visit
     # fields = ["name", "phone", "comment", "master", "services"] # Мы можем обойтись даже без формы!!!
@@ -151,11 +153,14 @@ class VisitDeleteView(PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy("thanks")
 
 
-class VisitListView(LoginRequiredMixin, ListView):
+class VisitListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
     template_name = "visit_list.html"
     model = Visit
     context_object_name = "visits"
     paginate_by = 5
+
+    def test_func(self):
+        return self.request.user.groups.filter(name='Администратор').exists() or self.request.user.is_superuser
 
     def get_queryset(self):
         """

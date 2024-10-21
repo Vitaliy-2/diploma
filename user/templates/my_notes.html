@@ -1,0 +1,29 @@
+{% extends "base_profile.html" %}
+{% load static %}
+
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content_profile %}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Мои заметки</h2>
+        {% if note %}
+            <ul class="list-group">
+            {% for record in note %}
+                <li class="list-group-item">
+                    <h5>{{ record.car_brand }} ({{ record.mileage }} км)</h5>
+                    <p>{{ record.work_done }}</p>
+                    <p>Сумма: {{ record.amount }} руб.</p>
+                    <small>Дата: {{ record.created_at|date:"d.m.Y H:i" }}</small>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>У вас пока нет заметок.</p>
+        {% endif %}
+    </div>
+</div>
+    
+{% endblock %}

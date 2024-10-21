@@ -12,6 +12,8 @@ from .views import (
     ProfileClassView,
     # CabinetClassView,
     ProfileDataView,
+    AddNoteView,
+    MyNotesView,
 )
 
 
@@ -54,4 +56,9 @@ urlpatterns = [
 
     # Данные пользователя в профиле
     path('profile-data/', ProfileDataView.as_view(), name='profile_data'),
+
+    # Добавление заметки
+    path('add-work-record/', AddNoteView.as_view(), name='add_note'),
+    # Список заметок
+    path('my-notes/', MyNotesView.as_view(), name='my_notes'),
 ]

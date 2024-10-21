@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
+from .models import Note
 
 class CustomLoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя пользователя'}))
@@ -34,3 +35,16 @@ class CustomPasswordChangeForm(PasswordChangeForm):
     old_password = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Текущий пароль"}))
     new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Новый пароль"}))
     new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={"class": "form-control", "placeholder": "Подтверждение нового пароля"}))
+
+
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = ['car_brand', 'mileage', 'work_done', 'amount']
+        widgets = {
+            'car_brand': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Марка автомобиля'}),
+            'mileage': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Пробег'}),
+            'work_done': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Проделанные работы'}),
+            'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Стоимость'}),
+        }
+

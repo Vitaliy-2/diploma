@@ -40,8 +40,10 @@
                     {% if perms.STOservice.delete_visit %}
                     <a href="{% url 'visit-delete' visit.pk %}" class="btn btn-danger my-2"><i class="bi bi-trash"></i></a>
                     {% endif %}
-
+                    
+                    {% if perms.STOservice.change_visit %}
                     <a href="{% url 'visit-edit' visit.pk %}" class="btn btn-dark my-2"><i class="bi bi-pencil"></i></a>
+                    {% endif %}
 
                     {% comment %} Добавляем проверку прав на core.view_visit {% endcomment %}
                     {% if perms.STOservice.view_visit %}
