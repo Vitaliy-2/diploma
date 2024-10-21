@@ -24,6 +24,7 @@
                 <th>Имя</th>
                 <th>Телефон</th>
                 <th>Дата создания</th>
+                <th>Дата изменения</th>
                 <th>Статус</th>
                 <th>Действия</th>
             </tr>
@@ -34,6 +35,7 @@
                 <td><a href="{% url 'visit-view' visit.pk %}">{{ visit.name }}</a></td>
                 <td><a href="tel:{{ visit.phone }}">{{ visit.phone }}</a></td>
                 <td>{{ visit.created_at }}</td>
+                <td>{{ visit.updated_at }}</td>
                 <td>{{ visit.get_status_display }}</td>
                 <td class="d-flex justify-content-around align-items-center">
 

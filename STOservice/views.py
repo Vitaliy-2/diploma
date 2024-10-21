@@ -178,7 +178,7 @@ class VisitListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             queryset = queryset.filter(
                 Q(name__icontains=search_query) | Q(phone__icontains=search_query)
             )
-        return queryset
+        return queryset.order_by('created_at')
     
     def get_context_data(self, **kwargs):
         """
