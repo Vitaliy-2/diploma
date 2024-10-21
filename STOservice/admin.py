@@ -4,8 +4,8 @@ from .models import Visit, Section, Service
 
 @admin.register(Visit)
 class VisitAdmin(admin.ModelAdmin):
-    list_display = ('name', 'phone', 'vin', 'created_at', 'status', 'section',)
-    list_filter = ('status', 'created_at')
+    list_display = ('name', 'phone', 'number_plate', 'created_at', 'status', 'section',)
+    list_filter = ('status', 'created_at', 'updated_at')
     search_fields = ('name', 'phone', 'comment')
 
 

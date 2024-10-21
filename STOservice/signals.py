@@ -19,7 +19,9 @@ def send_telegram_notification(sender, instance, action, **kwargs):
 *Новая запись на консультацию* 
 
 *Имя:* {instance.name} 
-*Телефон:* {instance.phone or 'не указан'} 
+*Телефон:* {instance.phone or 'не указан'}
+*Марка:* {instance.brand or 'не указан'} 
+*Номер:* {instance.number_plate or 'не указан'} 
 *Комментарий:* {instance.comment or 'не указан'}
 *Раздел:* {instance.section.name}
 *Услуги:* {', '.join(services) or 'не указаны'}

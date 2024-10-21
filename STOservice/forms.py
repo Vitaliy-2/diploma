@@ -9,11 +9,12 @@ class VisitModelForm(forms.ModelForm):
         # Ссылка на конкретную модель, с которой связанна форма
         model = Visit
         # Поля из модели, которые будут отображаться
-        fields = ['name', 'phone', 'vin', 'comment', 'section', 'services']
+        fields = ['name', 'phone', 'brand', 'number_plate', 'comment', 'section', 'services']
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Имя', 'class': 'form-control'}),
             'phone': forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Номер телефона', 'class': 'form-control'}),
-            'vin': forms.TextInput(attrs={'placeholder': 'Vin автомобиля (желательно)', 'class': 'form-control'}),
+            'brand': forms.TextInput(attrs={'placeholder': 'Марка автомобиля', 'class': 'form-control'}),
+            'number_plate': forms.TextInput(attrs={'placeholder': 'Номер автомобиля', 'class': 'form-control'}),
             'comment': forms.Textarea(attrs={'placeholder': 'Комментарий', 'class': 'form-control'}),
             'section': forms.Select(attrs={'class': 'form-control'}),
             'services': forms.SelectMultiple(attrs={'class': 'form-control'}),
@@ -45,14 +46,6 @@ class VisitModelForm(forms.ModelForm):
             # Поднимаем исключение, которое попадет в контекст шаблона
             raise forms.ValidationError("Имя должно быть строкой")
         return name
-    
-    # def clean_vin(self):
-    #     vin = self.cleaned_data["vin"]
-        
-    #     if not (vin.lenght == 17) or not (''):
-    #         # Поднимаем исключение, которое попадет в контекст шаблона
-    #         raise forms.ValidationError("Vin должен содержать 17 символом или быть пустым")
-    #     return vin
 
 
 # Расширяем исходну форму для дополнительного поля status (для администрации)

@@ -12,9 +12,11 @@ class Visit(models.Model):
 
     name = models.CharField(max_length=100, verbose_name='Имя')
     phone = models.CharField(max_length=20, verbose_name='Телефон')
-    vin = models.CharField(max_length=17, blank=True, verbose_name='vin')
+    brand = models.CharField(max_length=100, verbose_name='Марка автомобиля')
+    number_plate = models.CharField(max_length=6, verbose_name='Номер автомобиля')
     comment = models.TextField(blank=True, verbose_name='Комментарий')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата последнего обновления')
     status = models.IntegerField(choices=STATUS_CHOICES, default=0, verbose_name='Статус')
     
     section = models.ForeignKey('Section', on_delete=models.CASCADE, verbose_name='Раздел')
