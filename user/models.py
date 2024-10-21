@@ -10,7 +10,7 @@ class Note(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.car_brand} - {self.work_done}"
+        return f"{self.user} - {self.car_brand}"
     
     
     class Meta:

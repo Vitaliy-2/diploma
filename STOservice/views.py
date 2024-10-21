@@ -176,9 +176,9 @@ class VisitListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         # Если поисковый запрос есть, то фильтруем
         if search_query:
             queryset = queryset.filter(
-                Q(name__icontains=search_query) | Q(phone__icontains=search_query)
+                Q(name__iregex=search_query) | Q(phone__icontains=search_query)
             )
-        return queryset.order_by('created_at')
+        return queryset.order_by('-created_at')
     
     def get_context_data(self, **kwargs):
         """
@@ -192,3 +192,12 @@ class VisitListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
             context['search'] = search_query
         return context
 
+
+class Custom403View(TemplateView):
+    template_name = '403.html'
+    status_code = 403
+
+
+class Custom404View(TemplateView):
+    template_name = '404.html'
+    status_code = 404

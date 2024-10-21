@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -172,3 +172,7 @@ EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = os.getenv('EMAIL_HOST_USER')
 SERVER_EMAIL = os.getenv('EMAIL_HOST_USER')
 EMAIL_ADMIN = os.getenv('EMAIL_HOST_USER')
+
+
+HANDLER403 = 'STOservice.views.Custom403View.as_view()'
+HANDLER404 = 'STOservice.views.Custom404View.as_view()'
