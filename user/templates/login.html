@@ -17,16 +17,16 @@
                 <input type="hidden" name="next" value="{{ request.GET.next }}">
                 {{ form.as_p }}
                 <div class="d-grid mb-4">
-                    <button type="submit" class="btn btn-primary">Войти</button>
+                    <button type="submit" class="btn btn-success">Войти</button>
                 </div>
                 </form>
 
-                {% comment %} <form method="post" action="{% url 'password_reset' %}" class="d-inline">
+                <form method="post" action="{% url 'password_reset' %}" class="d-inline">
                     {% csrf_token %}
                     <div class="d-grid mb-3">
-                        <button type="submit" class="btn btn-primary">Восстановить пароль</button>
+                        <button type="submit" class="btn btn-dark">Восстановить пароль</button>
                     </div>
-                </form> {% endcomment %}
+                </form>
 
             </section>
         </div>

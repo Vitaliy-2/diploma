@@ -5,8 +5,8 @@ from django.core.exceptions import ValidationError
 from .models import Note
 
 class CustomLoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя пользователя'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль'}))
+    username = forms.CharField(label='Имя пользователя или email', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя пользователя или пароль'}))
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль'}))
 
 
 class CustomUserCreationForm(UserCreationForm):
