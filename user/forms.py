@@ -42,9 +42,9 @@ class NoteForm(forms.ModelForm):
         model = Note
         fields = ['car_brand', 'mileage', 'work_done', 'amount']
         widgets = {
-            'car_brand': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Марка автомобиля'}),
-            'mileage': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Пробег'}),
-            'work_done': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Проделанные работы'}),
-            'amount': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Стоимость'}),
+            'car_brand': forms.TextInput(attrs={'class': 'form-control'}),
+            'mileage': forms.NumberInput(attrs={'class': 'form-control'}),
+            'work_done': forms.Textarea(attrs={'class': 'form-control'}),
+            'amount': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
