@@ -1,0 +1,33 @@
+img {
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+img:hover {
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 20px 5px rgb(0, 0, 0, 0.8);
+}
+
+.service-card {
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+#favicon-logo {
+    border-radius: 0;
+    box-shadow: none;
+    width: auto;
+    height: 40px;
+    margin: 0;
+    transform: none;
+    transition: none;
+}
+
+#favicon-logo:hover {
+    transform: none;
+    box-shadow: none;
+}
