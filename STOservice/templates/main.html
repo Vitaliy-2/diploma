@@ -2,6 +2,11 @@
 {% load static %}
 {% block head %}<link rel="stylesheet" href="{% static 'css/main.css' %}" />{% endblock %}
 
+{% comment %} {% block title %}
+{{ title }}
+{% endblock %} {% endcomment %}
+{% block title %}Автосервис-Топ{% endblock %} 
+
 {% block header %}
 {% include 'menu.html' %}
 {% endblock %}

@@ -1,5 +1,7 @@
 {% extends "base.html" %} 
+{% load static %}
 
+{% block head %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock %}
 
 {% comment %} Тест коммет {% endcomment %} 
 {% block title %}О сервисе{% endblock %} 
@@ -11,15 +13,18 @@
 {% block content %}
 
 <div class='container py-4'>
+    <div class="text-center mb-5">
+        <h1 class='display-4 mb-4'>Описание процедур при выполнении определенных услуг!</h1>
+        <div class="decorative-line"></div>
+    </div>
 
-    <h1 class='text-center'>Приветствуем Вас на нашем сайте лучшего Автосервиса в Петрозаводске!</h1>
-
-    <a href={% url 'appointment' %} class="w-100 btn btn-dark mb-5 mt-5 py-3 ">
+    <a href={% url 'appointment' %} class="w-100 btn btn-success mb-5 mt-5 py-3 ">
         <h4>Оставьте простую заявку, заполните форму и в скором времени с Вами свяжутся специалисты!</h4></a>
     
-    <h2>Наши услуги</h2>
+    {% comment %} <h2>Наши услуги</h2> {% endcomment %}
 
-    <h4>Шиномонтаж</h4>
+    <div class="service-section">
+        <h2 class="service-title">Шиномонтаж</h2>
     
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
@@ -134,10 +139,12 @@
             </div>
         </div>
     </div>
+    </div>
 
 
 
-    <h4>Кузовные работы</h4>
+    <div class="service-section">
+    <h2 class="service-title">Кузовные работы</h2>
     
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
@@ -243,10 +250,12 @@
             </div>
         </div>
     </div>
+    </div>
 
 
 
-    <h4>Подвесная составляющая автомобиля</h4>
+    <div class="service-section">
+    <h2 class="service-title">Подвесная составляющая автомобиля</h2>
     
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
@@ -356,10 +365,12 @@
             </div>
         </div>
     </div>
+    </div>
 
 
 
-    <h4>Дополнительные услуги</h4>
+    <div class="service-section">
+    <h2 class="service-title">Дополнительные услуги</h2>
     
     <div class="accordion" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
@@ -469,8 +480,7 @@
             </div>
         </div>
     </div>
-    
-
+    </div>
 
 </div>
 
