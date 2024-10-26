@@ -1,6 +1,11 @@
 {% extends "base.html" %} 
+{% load static %}
 
 {% block title %}Запись{% endblock %} 
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/visit_form.css' %}" />
+{% endblock %}
 
 {% block header %}
 {% include 'menu.html' %}
@@ -11,13 +16,15 @@
 <div class="container py-4">
     <div class="row">
         <section id="orderForm" class="col-12 mb-4">
-            <h2>Запись на СТО</h2>
-            <form action="" method="post">
-                {% csrf_token %}
-                <div class="mb-3">{{ form.as_p }}</div>
-                <button type="submit" class="btn btn-dark">Отправить</button>
-                {% comment %} <a href="{% url 'visits' %}" class="btn btn-success my-2">Назад</a> {% endcomment %}
-            </form>
+            <h2 class="visit-section-title">Запись на СТО</h2>
+            <div class="visit-form-container">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">{{ form.as_p }}</div>
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                    {% comment %} <a href="{% url 'visits' %}" class="btn btn-success my-2">Назад</a> {% endcomment %}
+                </form>
+            </div>
         </section>
     </div>
 </div>

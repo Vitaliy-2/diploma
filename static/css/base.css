@@ -9,4 +9,23 @@ body {
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    background: repeating-linear-gradient(
+        -90deg,
+        #f8f9fa,
+        #d7ffd9 30px,
+        #e3ffe1 30px,
+        #dffde4 150px
+    );
+}
+
+.container:not(footer .container) {
+    background-color: #ffffff;
+    border-radius: 35px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: #e5e5e5 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }

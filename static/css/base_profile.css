@@ -38,7 +38,8 @@ html {
     color: #198754;
     font-weight: 600;
     margin-bottom: 20px;
-    border-left: 2px solid #198754;
+    margin-left: 30px;
+    border-left: 4px solid #198754;
     padding-left: 15px;
 }
 
