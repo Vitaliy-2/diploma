@@ -30,8 +30,8 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 
 MENU = [
         {'title': 'Главная', 'url': '/', 'alias': 'main'},
-        {'title': 'О сервисе', 'url': '/about/', 'alias': 'about'},
-        {'title': 'Услуги', 'url': '/services/', 'alias': 'services'},
+        {'title': 'Об услугах', 'url': '/about/', 'alias': 'about'},
+        {'title': 'Галерея услуг', 'url': '/services/', 'alias': 'services'},
         {'title': 'Отзывы', 'url': '#reviews', 'alias': True},
         {'title': 'Запись', 'url': '/appointment/', 'alias': 'appointment'},
     ]
@@ -132,7 +132,7 @@ class VisitUpdateView(PermissionRequiredMixin, UpdateView):
     form_class = VisitEditModelForm
     # Подтянем url по псевдониму thanks\
     # Функция для поиска маршрутов по имени (надежный метод)
-    success_url = reverse_lazy("thanks")
+    success_url = reverse_lazy("visits")
 
 
 # Миксин, дает проверку прав, выдаваемых через админку PermissionRequiredMixin, 

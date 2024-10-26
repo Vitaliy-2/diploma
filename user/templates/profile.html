@@ -7,12 +7,24 @@
 
 <div class="container">
     <div class="row">
-            <h2>Мои данные</h2>
-            <div class="card">
-                <div class="card-body">
-                    <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
-                    <p><strong>Email:</strong> {{ user.email }}</p>
-                    <p><strong>Дата регистрации:</strong> {{ user.date_joined }}</p>
+            <h2 class="profile-section-title">Мои данные</h2>
+            <div class="profile-card">
+                <div class="profile-card-body">
+                    <div class="profile-info-item">
+                        <i class="fas fa-user profile-icon"></i>
+                        <span class="profile-label">Имя пользователя:</span>
+                        <span class="profile-value">{{ user.username }}</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <i class="fas fa-envelope profile-icon"></i>
+                        <span class="profile-label">Email:</span>
+                        <span class="profile-value">{{ user.email }}</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <i class="fas fa-calendar-alt profile-icon"></i>
+                        <span class="profile-label">Дата регистрации:</span>
+                        <span class="profile-value">{{ user.date_joined }}</span>
+                    </div>
                 </div>
             </div>
     </div>

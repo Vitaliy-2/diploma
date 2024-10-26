@@ -54,21 +54,6 @@ class ProfileClassView(LoginRequiredMixin, View):
         return render(request, 'profile.html')
 
 
-# class CabinetClassView(LoginRequiredMixin, View):
-#     def post(self, request):
-#         return render(request, 'cabinet.html')
-    
-
-class ProfileDataView(LoginRequiredMixin, TemplateView):
-    template_name = 'profile_data.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context.update({'active_tab': 'profile_data'})
-        context.update({'title': 'Мои данные'})
-        return context
-
-
 class AddNoteView(LoginRequiredMixin, CreateView):
     form_class = NoteForm
     template_name = 'add_note.html'

@@ -2,7 +2,7 @@
 {% load static %}
 {% block head %}<link rel="stylesheet" href="{% static 'css/services.css' %}" />{% endblock %}
 
-{% block title %}Услуги{% endblock %} 
+{% block title %}Галерея услуг{% endblock %} 
 
 {% block header %}
 {% include 'menu.html' %}
@@ -13,7 +13,8 @@
 <div class='container py-4 text-center'>
     <section>
         <div>
-            <h1 class='display-3'>Добро пожаловать на страницу Услуг!</h1>
+            <h1 class='display-3 mb-4'>Галерея с предоставляемыми услугами!</h1>
+            <div class="decorative-line"></div>
             <p class='lead'>Здесь Вы сможете ознакомиться со всеми услугами, которые предоставляет наш сервис.
             Услуги разграничены по разделам, что упростит Ваш поиск и ориентацию по сайту!</p>
         </div>
@@ -22,8 +23,9 @@
     <section class='mt-5'>
         <div class='mb-4'>
             <h2 class='display-5'>Шиномонтаж</h2>
+            <div class="decorative-line"></div>
         </div>
- 
+
         <div class='row'>
             <div class="col-lg-4 col-md-6 col-sm-12 service-card">
                 <img src={% static "images/шиномонтаж/Демонтаж_резины.jpg" %} alt="Демонтаж">
@@ -56,6 +58,7 @@
     <section class='mt-5'>
         <div class='mb-4'>
             <h2 class='display-5'>Кузовные работы</h2>
+            <div class="decorative-line"></div>
         </div>
  
         <div class='row'>
@@ -89,7 +92,8 @@
 
     <section class='mt-5'>
         <div class='mb-4'>
-            <h2 class='display-5'>Также одной из основной деятельности сервиса является работа с подвеской и ее состовляющими</h2>
+            <h2 class='display-5'>Работа с подвеской и ее состовляющими</h2>
+            <div class="decorative-line"></div>
         </div>
  
         <div class='row'>
@@ -124,6 +128,7 @@
     <section class='mt-5'>
         <div class='mb-4'>
             <h2 class='display-5'>Дополнительные услуги</h2>
+            <div class="decorative-line"></div>
         </div>
  
         <div class='row'>

@@ -4,10 +4,8 @@
 {% endcomment %}
 
 <!-- navigation.html -->
-<nav id="navbar-example3" class="flex-column align-items-stretch pe-3 text-center">
+<nav id="navbar-example3" class="flex-column align-items-stretch text-center">
     <nav class="nav nav-pills flex-column">
-        <a class="nav-link {% if active_tab == 'profile_data' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'profile_data' %}">Мои данные</a>
-
         <a class="nav-link {% if active_tab == 'password_change' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'password_change' %}">Сменить пароль</a>
 
         <a class="nav-link {% if active_tab == 'my_notes' %}active bg-dark text-light{% else %}text-dark{% endif %}" href="{% url 'my_notes' %}">Мои заметки</a>

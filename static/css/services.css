@@ -15,6 +15,9 @@ img:hover {
 .service-card {
     margin-bottom: 30px;
     padding: 15px;
+    border-left: 3px solid #198754;
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
 #favicon-logo {
@@ -30,4 +33,11 @@ img:hover {
 #favicon-logo:hover {
     transform: none;
     box-shadow: none;
+}
+
+.decorative-line {
+    width: 100%;
+    height: 8px;
+    background-color: #198754;
+    margin-bottom: 2rem;
 }

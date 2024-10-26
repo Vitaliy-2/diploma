@@ -16,7 +16,7 @@ def send_telegram_notification(sender, instance, action, **kwargs):
         services = [service.name for service in instance.services.all()]
         print(f"УСЛУГИ: {services}")
         message = f"""
-*Новая запись на консультацию* 
+*Новая запись на обслуживание* 
 
 *Имя:* {instance.name} 
 *Телефон:* {instance.phone or 'не указан'}

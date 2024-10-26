@@ -10,8 +10,6 @@ from .views import (
     CustomPasswordChangeView,
     CustomPasswordChangeDoneView,
     ProfileClassView,
-    # CabinetClassView,
-    ProfileDataView,
     AddNoteView,
     MyNotesView,
 )
@@ -50,12 +48,6 @@ urlpatterns = [
     
     # Личный кабинет
     path("profile/", ProfileClassView.as_view(), name="profile"),
-
-    # Личный кабинет
-    # path("cabinet/", CabinetClassView.as_view(), name="cabinet"),
-
-    # Данные пользователя в профиле
-    path('profile-data/', ProfileDataView.as_view(), name='profile_data'),
 
     # Добавление заметки
     path('add-work-record/', AddNoteView.as_view(), name='add_note'),
