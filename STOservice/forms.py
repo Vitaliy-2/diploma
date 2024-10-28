@@ -22,6 +22,7 @@ class VisitModelForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['section'].empty_label = "Выберите раздел"
         # Если форма содержит ошибки, добавляем класс 'is-invalid' к соответствующим полям
         for field_name, field in self.fields.items():
             if self.errors.get(field_name):
