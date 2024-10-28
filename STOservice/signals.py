@@ -23,8 +23,6 @@ def send_telegram_notification(sender, instance, action, **kwargs):
 *Марка:* {instance.brand or 'не указан'} 
 *Номер:* {instance.number_plate or 'не указан'} 
 *Комментарий:* {instance.comment or 'не указан'}
-*Раздел:* {instance.section.name}
-*Услуги:* {', '.join(services) or 'не указаны'}
 -------------------------------------------------------------
 """
         asyncio.run(send_telegram_message(TELEGRAM_BOT_TOKEN, YOUR_PERSONAL_CHAT_ID, message))
