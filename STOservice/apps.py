@@ -7,5 +7,5 @@ class StoserviceConfig(AppConfig):
     verbose_name = 'Записи клиентов'
 
     # По готовности приложения будет импортирован сигнал
-    # def ready(self):
-    #     import STOservice.signals
+    def ready(self):
+        import STOservice.signals
