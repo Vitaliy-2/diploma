@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Visit, Section, Service
+from .models import Visit, Section, Service, Employee
 
 
 @admin.register(Visit)
@@ -20,4 +20,10 @@ class SectionAdmin(admin.ModelAdmin):
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'price',)
     search_fields = ('name', 'description')
-    # list_filter = ('section',)  # Фильтрация по услугам
+
+
+@admin.register(Employee)
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ('last_name', 'first_name', 'position', 'section', 'hire_date', 'phone', 'is_active')
+    list_filter = ('section', 'position', 'is_active')
+    search_fields = ('last_name', 'first_name', 'phone')

@@ -58,3 +58,21 @@ class Service(models.Model):
     class Meta:
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
+
+
+# Класс для сотрудников
+class Employee(models.Model):
+    first_name = models.CharField(max_length=100, verbose_name='Имя')
+    last_name = models.CharField(max_length=100, verbose_name='Фамилия')
+    phone = models.CharField(max_length=20, verbose_name='Телефон')
+    position = models.CharField(max_length=100, verbose_name='Должность')
+    section = models.ForeignKey('Section', on_delete=models.SET_NULL, null=True, verbose_name='Раздел')
+    hire_date = models.DateField(verbose_name='Дата приема на работу')
+    is_active = models.BooleanField(default=True, verbose_name='Работает')
+
+    def __str__(self):
+        return f'{self.last_name} {self.first_name}'
+
+    class Meta:
+        verbose_name = "Сотрудник"
+        verbose_name_plural = "Сотрудники"
