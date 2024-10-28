@@ -32,6 +32,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://vitaliy-2-diploma-1fb4.twc1.net',
+]
+
 
 # Application definition
 
