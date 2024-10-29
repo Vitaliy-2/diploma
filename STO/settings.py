@@ -33,6 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
+    'http://sto-service-top.ru',
     'https://vitaliy-2-diploma-1fb4.twc1.net',
     'https://sto-service-top.ru',
 ]
