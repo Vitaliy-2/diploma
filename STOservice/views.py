@@ -15,17 +15,11 @@ from django.views.generic import (
     ListView,
     DeleteView,
 )
-
-# Для ограничения доступа неавторизованных пользователей
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-
-from .forms import VisitModelForm, VisitEditModelForm
-from .models import Visit, Section
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import Group
 from django.contrib.auth.mixins import UserPassesTestMixin
-
+from .forms import VisitModelForm, VisitEditModelForm
+from .models import Visit, Section, Employee
 
 
 MENU = [
@@ -49,6 +43,8 @@ class MainView(TemplateView):
         context = super().get_context_data(**kwargs)
         context.update(get_menu_context())
         context.update({'page_alias': 'main'})
+        employees = Employee.objects.filter(is_active=True)
+        context.update({'employees': employees})
         return context
 
 

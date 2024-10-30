@@ -2,9 +2,6 @@
 {% load static %}
 {% block head %}<link rel="stylesheet" href="{% static 'css/main.css' %}" />{% endblock %}
 
-{% comment %} {% block title %}
-{{ title }}
-{% endblock %} {% endcomment %}
 {% block title %}Автосервис-Топ{% endblock %} 
 
 {% block header %}
@@ -109,6 +106,31 @@
             </div> 
         </div>
         
+    </div>
+
+    {% comment %} Сотрудники {% endcomment %}
+    <div class="container py-3 masters-container">
+        <div class="text-center mb-5">
+            <h2 class="display-5">Наши мастера</h2>
+            <div class="decorative-line"></div>
+        </div>
+        
+        <div class="masters-grid">
+            {% for employee in employees %}
+                <div class="master-card">
+                    <div class="master-image-container">
+                        {% if employee.image %}
+                            <img src="{{ employee.image.url }}" alt="{{ employee.first_name }}" class="master-image">
+                        {% else %}
+                            <img src="{% static 'images/default-employee.png' %}" alt="Default" class="master-image">
+                        {% endif %}
+                    </div>
+                    <h4 class="master-name">{{ employee.first_name }} {{ employee.last_name }}</h4>
+                    <p class="master-position">{{ employee.position }}</p>
+                    <p class="master-section">{{ employee.section.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
 </div>

@@ -62,6 +62,7 @@ class Service(models.Model):
 
 # Класс для сотрудников
 class Employee(models.Model):
+    image = models.ImageField(upload_to='employees/', verbose_name='Фото', null=True, blank=True)
     first_name = models.CharField(max_length=100, verbose_name='Имя')
     last_name = models.CharField(max_length=100, verbose_name='Фамилия')
     phone = models.CharField(max_length=20, verbose_name='Телефон')

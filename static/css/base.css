@@ -3,19 +3,11 @@ html {
 }
 
 body {
-    /* margin: 0;
-    color: black; */
-    /* Растягиваем body по высоте html */
     min-height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    background: repeating-linear-gradient(
-        -90deg,
-        #f8f9fa,
-        #d7ffd9 30px,
-        #e3ffe1 30px,
-        #dffde4 150px
-    );
+    background: linear-gradient(135deg, #ffffff, #d7ffd9);
+    background-attachment: fixed;
 }
 
 .container:not(footer .container) {

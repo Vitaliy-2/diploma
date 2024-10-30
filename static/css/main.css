@@ -26,7 +26,6 @@
 
 .features-block {
     background: linear-gradient(145deg, #ffffff, #c4c4c4);
-    /* border-left: 4px solid #198754; */
     border-radius: 10px;
     padding: 20px;
     margin-top: 30px;
@@ -56,4 +55,66 @@
     color: #198754;
     margin-right: 10px;
     font-size: 1.3rem;
+}
+
+
+
+/* Блок мастеров */
+
+.masters-container {
+    margin: 4rem 0;
+}
+
+.masters-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.master-card {
+    flex: 0 1 250px;
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(145deg, #ffffff, #d8d8d8);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.master-card:hover {
+    transform: translateY(-10px);
+}
+
+.master-image-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #198754;
+}
+
+.master-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.master-name {
+    color: #198754;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.master-position {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.master-section {
+    color: #198754;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
