@@ -118,3 +118,75 @@
     font-size: 0.8rem;
     font-weight: 500;
 }
+
+
+/* Стили для карусели отзывов */
+.reviews-container {
+    margin: 4rem 0;
+}
+
+.review-card {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
+    min-height: 300px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.review-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #198754;
+}
+
+.review-content {
+    flex: 1;
+    text-align: left;
+}
+
+.review-content h5 {
+    color: #198754;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #198754;
+    border-radius: 50%;
+    padding: 1.5rem;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #198754;
+}
+
+@media (max-width: 768px) {
+    .review-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .review-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .review-content {
+        text-align: center;
+    }
+}
+

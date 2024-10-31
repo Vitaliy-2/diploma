@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import date as date_filter
 
 # Класс для записи на обслуживание авто
 class Visit(models.Model):
@@ -77,3 +78,23 @@ class Employee(models.Model):
     class Meta:
         verbose_name = "Сотрудник"
         verbose_name_plural = "Сотрудники"
+    
+
+class Review(models.Model):
+    STATUS_CHOICES = [
+        (0, 'Не проверен'),
+        (1, 'Проверен'),
+    ]
+
+    name = models.CharField(max_length=100, verbose_name="Имя")
+    comment = models.TextField(verbose_name='Комментарий')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    status = models. IntegerField(choices=STATUS_CHOICES, default=0, verbose_name='Статус')
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f'Отзыв от {self.name} ({date_filter(self.created_at, "d.m.Y")})'

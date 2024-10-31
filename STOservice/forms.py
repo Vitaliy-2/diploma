@@ -1,5 +1,5 @@
 from django import forms
-from .models import Visit
+from .models import Visit, Review
 import re
 
 
@@ -56,4 +56,14 @@ class VisitEditModelForm(VisitModelForm):
         widgets = {
             **VisitModelForm.Meta.widgets,
             "status": forms.Select(attrs={"class": "form-control"}),
+        }
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['name', 'comment']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ваше имя'}),
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Ваш отзыв'}),
         }

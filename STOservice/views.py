@@ -18,15 +18,15 @@ from django.views.generic import (
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.models import Group
 from django.contrib.auth.mixins import UserPassesTestMixin
-from .forms import VisitModelForm, VisitEditModelForm
-from .models import Visit, Section, Employee
+from .forms import VisitModelForm, VisitEditModelForm, ReviewForm
+from .models import Visit, Section, Employee, Review
 
 
 MENU = [
         {'title': 'Главная', 'url': '/', 'alias': 'main'},
         {'title': 'Об услугах', 'url': '/about/', 'alias': 'about'},
         {'title': 'Галерея услуг', 'url': '/services/', 'alias': 'services'},
-        {'title': 'Отзывы', 'url': '#reviews', 'alias': True},
+        {'title': 'Оставить отзыв', 'url': '/review/', 'alias': 'review'},
         {'title': 'Запись', 'url': '/appointment/', 'alias': 'appointment'},
     ]
 
@@ -45,6 +45,8 @@ class MainView(TemplateView):
         context.update({'page_alias': 'main'})
         employees = Employee.objects.filter(is_active=True)
         context.update({'employees': employees})
+        reviews = Review.objects.filter(status=1)
+        context.update({'reviews': reviews})
         return context
 
 
@@ -186,6 +188,19 @@ class VisitListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         search_query = self.request.GET.get('search')
         if search_query:
             context['search'] = search_query
+        return context
+
+
+class ReviewCreateView(CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'review_form.html'
+    success_url = reverse_lazy('main')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(get_menu_context())
+        context.update({'page_alias': 'review'})
         return context
 
 

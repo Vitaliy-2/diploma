@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Visit, Section, Service, Employee
+from .models import Visit, Section, Service, Employee, Review
 
 
 @admin.register(Visit)
@@ -24,6 +24,13 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'first_name', 'position', 'section', 'hire_date', 'phone', 'is_active')
+    list_display = ('last_name', 'first_name', 'position', 'section', 'hire_date', 'phone', 'is_active',)
     list_filter = ('section', 'position', 'is_active')
     search_fields = ('last_name', 'first_name', 'phone')
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created_at', 'status',)
+    list_filter = ('status', 'created_at',)
+    search_fields = ('name', 'comment',)

@@ -17,6 +17,7 @@ from STOservice.views import (
     VisitUpdateView,
     VisitDeleteView,
     VisitListView,
+    ReviewCreateView
 )
 
 from user import urls
@@ -29,6 +30,7 @@ urlpatterns = [
     path('services/', ServicesView.as_view(), name='services'),
     path('appointment/', VisitFormView.as_view(), name='appointment'),
     path('thanks/', ThanksTemplateView.as_view(), name='thanks'),
+    path('review/', ReviewCreateView.as_view(), name='review'),
 
     # Маршрут для скрипта
     path("get_services_by_section/<int:section_id>/", ServicesBySectionView.as_view(), name="get_services_by_section"),

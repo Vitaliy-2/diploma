@@ -133,6 +133,51 @@
         </div>
     </div>
 
+
+    <!-- Добавить перед блоком masters-container -->
+    <div class="container py-3 reviews-container">
+        <div class="text-center mb-5">
+            <h2 class="display-5">Отзывы наших клиентов</h2>
+            <div class="decorative-line"></div>
+        </div>
+
+        <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover">
+            <div class="carousel-indicators">
+                {% for review in reviews %}
+                    <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
+                        {% if forloop.first %}class="active" aria-current="true"{% endif %} 
+                        aria-label="Slide {{ forloop.counter }}">
+                    </button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% for review in reviews %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="review-card">
+                            {% if review.image %}
+                                <img src="{{ review.image.url }}" class="review-image" alt="Фото к отзыву">
+                            {% endif %}
+                            <div class="review-content">
+                                <h5>{{ review.name }}</h5>
+                                <p>{{ review.comment }}</p>
+                                <small class="text-muted">{{ review.created_at|date:"d.m.Y" }}</small>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Следующий</span>
+            </button>
+        </div>
+    </div>
+
+
 </div>
 
 {% endblock %}
