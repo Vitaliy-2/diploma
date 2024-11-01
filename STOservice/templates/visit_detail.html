@@ -14,13 +14,7 @@
                     <p class="card-text"><strong>Имя:</strong> {{ visit.name }}</p>
                     <p class="card-text"><strong>Телефон:</strong> {{ visit.phone }}</p>
                     <p class="card-text"><strong>Статус:</strong> {{ visit.get_status_display }}</p>
-                    <p class="card-text"><strong>Раздел:</strong> {{ visit.section.name }} {{ visit.master.last_name }}</p>
-                    {% comment %} <p class="card-text">
-                    {% if visit.master.photo %}
-                        <img src="{{ visit.master.photo.url }}" alt="{{ visit.master.first_name }} {{ visit.master.last_name }}" class="img-fluid mb-3">
-                    {% endif %}
-                    </p> {% endcomment %}
-                    
+                    <p class="card-text"><strong>Раздел:</strong> {{ visit.section.name }} {{ visit.master.last_name }}</p>              
                     <p class="card-text my-3"><strong>Услуги:</strong></p>
                     <ul>
                         {% for service in visit.services.all %}

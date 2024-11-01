@@ -47,7 +47,6 @@
                     <a href="{% url 'visit-edit' visit.pk %}" class="btn btn-dark my-2"><i class="bi bi-pencil"></i></a>
                     {% endif %}
 
-                    {% comment %} Добавляем проверку прав на core.view_visit {% endcomment %}
                     {% if perms.STOservice.view_visit %}
                     <a href="{% url 'visit-view' visit.pk %}" class="btn btn-dark my-2"><i class="bi bi-eye"></i></a>
                     {% endif %}

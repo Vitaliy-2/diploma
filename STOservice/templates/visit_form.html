@@ -22,7 +22,6 @@
                     {% csrf_token %}
                     <div class="mb-3">{{ form.as_p }}</div>
                     <button type="submit" class="btn btn-success">Отправить</button>
-                    {% comment %} <a href="{% url 'visits' %}" class="btn btn-success my-2">Назад</a> {% endcomment %}
                 </form>
             </div>
         </section>
@@ -37,7 +36,7 @@
 <script>
     // Функция для выполнения AJAX-запроса к серверу и получения услуг по выбранному мастеру
     async function fetchServices(sectionId) {
-        const url = `/get_services_by_section/${sectionId}/`; // Убедитесь, что этот URL соответствует маршрутизации
+        const url = `/get_services_by_section/${sectionId}/`;
         const response = await fetch(url);
         const data = await response.json();
         return data.services;
@@ -59,7 +58,7 @@
         });
     }
     
-    // Обработчик изменения мастера, который запрашивает данные и обновляет список услуг
+    // Обработчик изменения раздела, который запрашивает данные и обновляет список услуг
     function setupServiceSelectListener() {
         const sectionSelect = document.getElementById("id_section");
         

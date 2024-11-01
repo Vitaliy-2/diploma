@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from .models import Note
 
 class CustomLoginForm(AuthenticationForm):
-    username = forms.CharField(label='Имя пользователя или email', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя пользователя или пароль'}))
+    username = forms.CharField(label='Имя пользователя или email', widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Имя пользователя или E-mail'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Пароль'}))
 
 
@@ -27,7 +27,6 @@ class CustomUserCreationForm(UserCreationForm):
         # Проверяет, есть ли такой же email в базе. exists() - возвращает bool
         if get_user_model().objects.filter(email=email).exists():
             raise ValidationError("Данный адрес электронной почты уже зарегистрирован в системе")
-        # Если проверка прошла, пропускаем email дальше
         return email
 
 

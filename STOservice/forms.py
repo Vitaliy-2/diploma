@@ -4,11 +4,8 @@ import re
 
 
 class VisitModelForm(forms.ModelForm):
-    # Служебный класс только для параметров. Изолирует переменные, чтобы джанго брал их тут.
     class Meta:
-        # Ссылка на конкретную модель, с которой связанна форма
         model = Visit
-        # Поля из модели, которые будут отображаться
         fields = ['name', 'phone', 'brand', 'number_plate', 'comment', 'section', 'services']
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Имя', 'class': 'form-control'}),
@@ -37,7 +34,6 @@ class VisitModelForm(forms.ModelForm):
         phone_pattern = r'^(\+7|8)\d{10}$'
         if not re.match(phone_pattern, phone):
             raise forms.ValidationError('Номер телефона должен начинаться с +7 или с 8 и содержать 10 цифр после кода страны.')
-
         return phone
     
     def clean_name(self):

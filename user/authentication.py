@@ -2,7 +2,7 @@ from django.contrib.auth.backends import BaseBackend
 from django.contrib.auth import get_user_model
 
 
-# Это позволяет авторизироваться пользователю через email, а не никнейм
+# Это позволяет авторизироваться пользователю через email
 # Берем логику из под капота django
 class EmailAuthBackend(BaseBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):

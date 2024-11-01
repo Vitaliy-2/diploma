@@ -38,7 +38,6 @@ def get_menu_context(menu: list[dict] = MENU):
 class MainView(TemplateView):
     template_name = "main.html"
 
-    # Расширяем метод. Добавляем контекст ключ - меню.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(get_menu_context())
@@ -53,7 +52,6 @@ class MainView(TemplateView):
 class AboutView(TemplateView):
     template_name = "about.html"
 
-    # Расширяем метод. Добавляем контекст ключ - меню.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(get_menu_context())
@@ -64,26 +62,22 @@ class AboutView(TemplateView):
 class ServicesView(TemplateView):
     template_name = "services.html"
 
-    # Расширяем метод. Добавляем контекст ключ - меню.
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(get_menu_context())
         context.update({'page_alias': 'services'})
         return context
-    
 
-# класс для отображения форм
+
 class VisitFormView(FormView):
     template_name = "visit_form.html"
     form_class = VisitModelForm
     success_url = "/thanks/"
-    # context = get_menu_context()
 
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
-    
-    # Расширяем метод. Добавляем контекст ключ - меню.
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(get_menu_context())
@@ -91,11 +85,9 @@ class VisitFormView(FormView):
         return context
 
 
-# Используется для статичных страниц, где данные особо не меняются
 class ThanksTemplateView(TemplateView):
     template_name = "thanks.html"
-    
-    # Расширяем метод. Добавляем контекст ключ - меню.
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(get_menu_context())
@@ -103,44 +95,34 @@ class ThanksTemplateView(TemplateView):
 
 
 class ServicesBySectionView(View):
-    
+
     def get(self, request, section_id):
         services = Section.objects.get(id=section_id).services.all()
         services_data = [
             {"id": service.id, "name": service.name} for service in services
         ]
         return JsonResponse({"services": services_data})
-    
+
 
 class VisitCreateView(CreateView):
     template_name = "visit_form.html"
     model = Visit
-    # fields = ["name", "phone", "comment", "master", "services"] # Мы можем обойтись даже без формы!!!
     form_class = VisitModelForm
-    # Подтянем url по псевдониму thanks\
-    # Функция для поиска маршрутов по имени (надежный метод)
-    success_url = reverse_lazy("thanks")\
+    success_url = reverse_lazy("thanks")
 
 
 class VisitUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'STOservice.change_visit'
     template_name = "visit_form.html"
     model = Visit
-    # fields = ["name", "phone", "comment", "master", "services"] # Мы можем обойтись даже без формы!!!
     form_class = VisitEditModelForm
-    # Подтянем url по псевдониму thanks\
-    # Функция для поиска маршрутов по имени (надежный метод)
     success_url = reverse_lazy("visits")
 
 
-# Миксин, дает проверку прав, выдаваемых через админку PermissionRequiredMixin, 
 class VisitDetailView(PermissionRequiredMixin, DetailView):
-    # Где core - приложение, view - право доступа на одну из круд операцию, visit - модель
     permission_required = 'STOservice.view_visit'
-    # raise_exception = True
     template_name = "visit_detail.html"
     model = Visit
-    # Переменная в которую поместятся данные об объекте, из которой можно вытягивать данные в шаблон
     context_object_name = "visit"
 
 
@@ -148,7 +130,7 @@ class VisitDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'STOservice.delete_visit'
     template_name = "visit_confirm_delete.html"
     model = Visit
-    success_url = reverse_lazy("thanks")
+    success_url = reverse_lazy("visits")
 
 
 class VisitListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
@@ -165,10 +147,9 @@ class VisitListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
         Расширили служебный метод get_queryset()
         Который поставляет в контекст шаблона список записей
         """
-        # Используя родителя получили все
         queryset = super().get_queryset()
         
-        # Добыли поисковый запрос \ или None
+        # Добыли поисковый запрос \ None
         search_query = self.request.GET.get('search')
         
         # Если поисковый запрос есть, то фильтруем

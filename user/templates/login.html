@@ -12,8 +12,6 @@
                 <h2 class="mb-4 text-center">Вход</h2>
                 <form method="post">
                 {% csrf_token %}
-                {% comment %} ?next=/visit/1/view/ {% endcomment %}
-                {% comment %} hidden - скрытое поле ввода, которое пользователь не увидит {% endcomment %}
                 <input type="hidden" name="next" value="{{ request.GET.next }}">
                 {{ form.as_p }}
                 <div class="d-grid mb-4">

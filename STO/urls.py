@@ -37,16 +37,12 @@ urlpatterns = [
 
     # CRUD для Visit 
     path('visit/add/', VisitCreateView.as_view(), name='visit-form'),
-    # Read на DetailView
     path("visit/<int:pk>/view/", VisitDetailView.as_view(), name="visit-view"),
-    # Update на UpdateView
     path("visit/<int:pk>/edit/", VisitUpdateView.as_view(), name="visit-edit"),
-    # DeleteView
     path("visit/<int:pk>/delete/", VisitDeleteView.as_view(), name="visit-delete"),
-    # ListView
     path("visits/", VisitListView.as_view(), name="visits"),
 
-    # Подключаем пользователей с префиксом user
+    # Подключение пользователей с префиксом user
     path("user/", include(urls)),
 ]
 

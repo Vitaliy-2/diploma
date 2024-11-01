@@ -51,7 +51,6 @@ class Service(models.Model):
     name = models.CharField(max_length=200, verbose_name='Название')
     description = models.TextField(verbose_name='Описание')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
-    # section = models.ForeignKey('Section', on_delete=models.CASCADE, verbose_name='Раздел')  # Связь с разделом
 
     def __str__(self):
         return f'{self.name}'

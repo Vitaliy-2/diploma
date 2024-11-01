@@ -20,14 +20,13 @@ class CustomLoginView(LoginView):
     def get_success_url(self):
         """
         Когда вью авторизации авторизует пользователя, происходит перенаправление на страницу, указанную
-        в  параметре "next" в запросе. Если такой параметр не указан, то происходит перенаправление на домашнюю страниц
+        в  параметре "next" в запросе. Если такой параметр не указан, то происходит перенаправление на домашнюю страницу
         """
         next_url = self.request.POST.get('next') or self.request.GET.get('next')
         return next_url or reverse_lazy('main')
 
 
 def logout_view(request):
-    # logout - выйти из системы
     logout(request)
     return redirect('main')
 
